@@ -4,11 +4,11 @@ const songsSlice = createSlice({
   name: 'song',
   initialState: [],
   reducers: {
-    addSong(state, action) {
+    addSong: (state, action) => {
       state.push(action.payload);
     },
-    removeSong(state, action) {
-      //
+    removeSong: (state, action) => {
+      return state.filter(song => song !== action.payload);
     }
   }
 });
@@ -30,10 +30,13 @@ const store = configureStore({
   }
 });
 
-const startingState = store.getState();
-console.log(startingState);
-
 store.dispatch({ type: 'song/addSong', payload: 'Holy Wars' });
 store.dispatch({ type: 'movie/addMovie', payload: 'Jurrasic Park' });
+store.dispatch({ type: 'song/addSong', payload: "Don't let the sun go down on me" });
+store.dispatch({ type: 'song/addSong', payload: 'One' });
+
+console.log(store.getState());
+
+store.dispatch({ type: 'song/removeSong', payload: 'Holy Wars' });
 
 console.log(store.getState());
