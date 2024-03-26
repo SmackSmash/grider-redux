@@ -1,6 +1,6 @@
 import { createRandomMovie } from '../data';
 
-function MoviePlaylist() {
+const MoviePlaylist = () => {
   // To Do:
   // Get list of movies
   const moviePlaylist = [];
@@ -38,6 +38,6 @@ function MoviePlaylist() {
       <ul>{renderedMovies}</ul>
     </div>
   );
-}
+};
 
 export default MoviePlaylist;

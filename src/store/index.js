@@ -26,9 +26,13 @@ const movieSlice = createSlice({
   }
 });
 
+// Export store and hook up to app the same way as vanilla redux
 export const store = configureStore({
   reducer: {
     songs: songsSlice.reducer,
     movies: movieSlice.reducer
   }
 });
+
+// Destructure reducers to individial exports
+export const { addSong } = songsSlice.actions;
