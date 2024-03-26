@@ -30,13 +30,6 @@ const store = configureStore({
   }
 });
 
-store.dispatch({ type: 'song/addSong', payload: 'Holy Wars' });
-store.dispatch({ type: 'movie/addMovie', payload: 'Jurrasic Park' });
-store.dispatch({ type: 'song/addSong', payload: "Don't let the sun go down on me" });
-store.dispatch({ type: 'song/addSong', payload: 'One' });
-
-console.log(store.getState());
-
-store.dispatch({ type: 'song/removeSong', payload: 'Holy Wars' });
+store.dispatch(songsSlice.actions.addSong('Holy Wars'));
 
 console.log(store.getState());
