@@ -26,13 +26,9 @@ const movieSlice = createSlice({
   }
 });
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
     songs: songsSlice.reducer,
     movies: movieSlice.reducer
   }
 });
-
-store.dispatch(songsSlice.actions.addSong('Holy Wars'));
-
-console.log(store.getState());
