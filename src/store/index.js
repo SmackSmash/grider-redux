@@ -19,6 +19,9 @@ const movieSlice = createSlice({
   reducers: {
     addMovie(state, action) {
       state.push(action.payload);
+    },
+    removeMovie: (state, action) => {
+      return state.filter(movie => movie !== action.payload);
     }
   }
 });
