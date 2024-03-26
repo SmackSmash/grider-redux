@@ -13,10 +13,27 @@ const songsSlice = createSlice({
   }
 });
 
-const store = configureStore({
-  reducer: {
-    songs: songsSlice.reducer
+const movieSlice = createSlice({
+  name: 'movie',
+  initialState: [],
+  reducers: {
+    addMovie(state, action) {
+      state.push(action.payload);
+    }
   }
 });
 
-console.log(store);
+const store = configureStore({
+  reducer: {
+    songs: songsSlice.reducer,
+    movies: movieSlice.reducer
+  }
+});
+
+const startingState = store.getState();
+console.log(startingState);
+
+store.dispatch({ type: 'song/addSong', payload: 'Holy Wars' });
+store.dispatch({ type: 'movie/addMovie', payload: 'Jurrasic Park' });
+
+console.log(store.getState());
