@@ -1,7 +1,7 @@
 import { createRandomSong } from '../data';
 // Import addSong action creator and useDispatch to dispatch actions
 import { useDispatch, useSelector } from 'react-redux';
-import { addSong, removeSong } from '../store';
+import { addSong, removeSong } from '../store/slices/songsSlice';
 
 const SongPlaylist = () => {
   // Can use destructuring like we did with mapStateToProps
