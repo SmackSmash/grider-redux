@@ -1,6 +1,6 @@
 import { configureStore, createSlice, createAction } from '@reduxjs/toolkit';
 
-export const reset = createAction('reset');
+export const reset = createAction('app/reset');
 
 const movieSlice = createSlice({
   name: 'movie',
