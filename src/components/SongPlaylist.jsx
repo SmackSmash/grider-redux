@@ -4,11 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addSong, removeSong } from '../store';
 
 const SongPlaylist = () => {
-  // useDispatch hook setup
-  const dispatch = useDispatch();
-
   // Can use destructuring like we did with mapStateToProps
   const songPlaylist = useSelector(({ songs }) => songs);
+  // useDispatch hook setup
+  const dispatch = useDispatch();
 
   const handleSongAdd = song => {
     dispatch(addSong(song));

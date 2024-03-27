@@ -3,9 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addMovie, removeMovie } from '../store';
 
 const MoviePlaylist = () => {
-  const dispatch = useDispatch();
-
   const moviePlaylist = useSelector(({ movies }) => movies);
+  const dispatch = useDispatch();
 
   const handleMovieAdd = movie => {
     dispatch(addMovie(movie));
