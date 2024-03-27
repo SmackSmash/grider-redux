@@ -1,13 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import moviesSlice, { addMovie, removeMovie } from './slices/moviesSlice';
-import songsSlice, { addSong, removeSong } from './slices/songsSlice';
+import movies, { addMovie, removeMovie } from './slices/moviesSlice';
+import songs, { addSong, removeSong } from './slices/songsSlice';
 
 // Export store and hook up to app the same way as vanilla redux
 const store = configureStore({
   reducer: {
-    songs: songsSlice,
-    movies: moviesSlice
+    songs,
+    movies
   }
 });
 
