@@ -1,19 +1,22 @@
 import { createRandomSong } from '../data';
 // Import addSong action creator and useDispatch to dispatch actions
-import { addSong } from '../store';
-import { useDispatch } from 'react-redux';
+import { addSong, removeSong } from '../store';
+import { useDispatch, useSelector } from 'react-redux';
 
 const SongPlaylist = () => {
   // useDispatch hook setup
   const dispatch = useDispatch();
 
-  const songPlaylist = [];
+  // Can use destructuring like we did with mapStateToProps
+  const songPlaylist = useSelector(({ songs }) => songs);
 
   const handleSongAdd = song => {
     dispatch(addSong(song));
   };
 
-  const handleSongRemove = song => {};
+  const handleSongRemove = song => {
+    dispatch(removeSong(song));
+  };
 
   const renderedSongs = songPlaylist.map(song => {
     return (

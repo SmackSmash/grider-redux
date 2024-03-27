@@ -4,9 +4,11 @@ const songsSlice = createSlice({
   name: 'song',
   initialState: [],
   reducers: {
+    // Can mutate state directly due to immer integration
     addSong: (state, action) => {
       state.push(action.payload);
     },
+    // Or we can return new data like the old days
     removeSong: (state, action) => {
       return state.filter(song => song !== action.payload);
     }
@@ -35,4 +37,4 @@ export const store = configureStore({
 });
 
 // Destructure reducers to individial exports
-export const { addSong } = songsSlice.actions;
+export const { addSong, removeSong } = songsSlice.actions;
