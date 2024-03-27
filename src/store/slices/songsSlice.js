@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { reset } from '../actions/actions';
+import { reset } from '../actions';
 
 const songsSlice = createSlice({
   name: 'song',
@@ -24,4 +24,4 @@ const songsSlice = createSlice({
 });
 
 export const { addSong, removeSong } = songsSlice.actions;
-export default songsSlice;
+export default songsSlice.reducer;
