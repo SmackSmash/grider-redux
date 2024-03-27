@@ -1,5 +1,26 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 
+export const RESET = 'reset';
+
+const movieSlice = createSlice({
+  name: 'movie',
+  initialState: [],
+  reducers: {
+    addMovie(state, action) {
+      state.push(action.payload);
+    },
+    removeMovie: (state, action) => {
+      state.splice(state.indexOf(action.payload), 1);
+    }
+  },
+  // Listen for actions meant for other slices
+  extraReducers: builder => {
+    builder.addCase(RESET, state => {
+      state.splice(0, state.length);
+    });
+  }
+});
+
 const songsSlice = createSlice({
   name: 'song',
   initialState: [],
@@ -13,19 +34,12 @@ const songsSlice = createSlice({
       // Or we can return new data like the old days
       // return state.filter(song => song !== action.payload);
     }
-  }
-});
-
-const movieSlice = createSlice({
-  name: 'movie',
-  initialState: [],
-  reducers: {
-    addMovie(state, action) {
-      state.push(action.payload);
-    },
-    removeMovie: (state, action) => {
-      state.splice(state.indexOf(action.payload), 1);
-    }
+  },
+  // Listen for actions meant for other slices
+  extraReducers: builder => {
+    builder.addCase(RESET, state => {
+      state.splice(0, state.length);
+    });
   }
 });
 
