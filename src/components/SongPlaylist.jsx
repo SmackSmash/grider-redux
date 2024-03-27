@@ -4,19 +4,16 @@ import { addSong } from '../store';
 import { useDispatch } from 'react-redux';
 
 const SongPlaylist = () => {
+  // useDispatch hook setup
   const dispatch = useDispatch();
-  // To Do:
-  // Get list of songs
+
   const songPlaylist = [];
 
   const handleSongAdd = song => {
     dispatch(addSong(song));
   };
 
-  const handleSongRemove = song => {
-    // To Do:
-    // Remove song from list of songs
-  };
+  const handleSongRemove = song => {};
 
   const renderedSongs = songPlaylist.map(song => {
     return (
