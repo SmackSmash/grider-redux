@@ -8,9 +8,10 @@ const songsSlice = createSlice({
     addSong: (state, action) => {
       state.push(action.payload);
     },
-    // Or we can return new data like the old days
     removeSong: (state, action) => {
-      return state.filter(song => song !== action.payload);
+      state.splice(state.indexOf(action.payload), 1);
+      // Or we can return new data like the old days
+      // return state.filter(song => song !== action.payload);
     }
   }
 });
@@ -23,7 +24,7 @@ const movieSlice = createSlice({
       state.push(action.payload);
     },
     removeMovie: (state, action) => {
-      return state.filter(movie => movie !== action.payload);
+      state.splice(state.indexOf(action.payload), 1);
     }
   }
 });
@@ -36,5 +37,6 @@ export const store = configureStore({
   }
 });
 
-// Destructure reducers to individial exports
+// Destructure action creators for reducers to individial exports
 export const { addSong, removeSong } = songsSlice.actions;
+export const { addMovie, removeMovie } = movieSlice.actions;

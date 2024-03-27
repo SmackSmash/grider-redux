@@ -1,7 +1,7 @@
 import { createRandomSong } from '../data';
 // Import addSong action creator and useDispatch to dispatch actions
-import { addSong, removeSong } from '../store';
 import { useDispatch, useSelector } from 'react-redux';
+import { addSong, removeSong } from '../store';
 
 const SongPlaylist = () => {
   // useDispatch hook setup
